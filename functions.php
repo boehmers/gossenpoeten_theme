@@ -86,6 +86,31 @@ function gossenpoeten_theme_content_width()
 
 add_action('after_setup_theme', 'gossenpoeten_theme_content_width', 0);
 
+if ( !function_exists( 'strapped_the_custom_logo' ) ) :
+    /**
+     * Displays the optional custom logo.
+     *
+     * Does nothing if the custom logo is not available.
+     *
+     */
+    function strapped_the_custom_logo() {
+        // Try to retrieve the Custom Logo
+        $output = '';
+        if (function_exists('get_custom_logo'))
+            $output = get_custom_logo();
+
+        // Nothing in the output: Custom Logo is not supported, or there is no selected logo
+        // In both cases we display the site's name
+        if (empty($output))
+            $output = '<a class="navbar-brand" href="' . esc_url(home_url('/')) . '">' . get_bloginfo('name') . '</a>';
+
+        echo $output;
+    }
+endif;
+
+// Add logo upload in customizer WordPress 4.5+
+add_theme_support( 'custom-logo' );
+
 /**
  * widgets
  */
@@ -115,3 +140,8 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Bootstrap Walker Menu
+ */
+require get_template_directory() . '/inc/bootstrap-walker.php';

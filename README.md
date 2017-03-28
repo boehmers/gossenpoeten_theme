@@ -4,7 +4,7 @@ Getting started
 ===
 1. clone or fork the project into the wordpress themes folder
 2. be sure to have the latest LTS-version of node.js with npm installed
-3. run the command `npm install` in the projekt root
+3. run the command `npm install` in the project root
 4. after, run `bower install` npm script
 5. finally, run `gulp icons` npm script to use the awesome fonts
 
