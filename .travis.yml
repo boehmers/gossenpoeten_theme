@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "iojs"
+  - "7"
+before_install:
+  - npm install -g gulp
+install:
+  - npm install
+  - bower install
+  - gulp icons
+before_install:
+  - npm install -g gulp
+script: gulp

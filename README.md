@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
-
 Getting started
 ===
 1. clone or fork the project into the wordpress themes folder
