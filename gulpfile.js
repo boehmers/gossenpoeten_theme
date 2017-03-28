@@ -17,13 +17,13 @@ zip = require('gulp-zip');
 
 var config = {
     bowerDir: './bower_components'
-}
+};
 
 // Default error handler
 var onError = function (err) {
     console.log('An error occured:', err.message);
     this.emit('end');
-}
+};
 
 // Zip files up
 gulp.task('zip', function () {
@@ -38,7 +38,7 @@ gulp.task('zip', function () {
         '!bower_components',
         '!node_modules',
     ], {base: "."})
-        .pipe(zip('strapped.zip'))
+        .pipe(zip('gossenpoeten_theme.zip'))
         .pipe(gulp.dest('.'));
 });
 
@@ -60,7 +60,7 @@ gulp.task('jshint', function () {
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
         .pipe(jshint.reporter('fail'));
-})
+});
 
 // Concatenates all files that it finds in the manifest
 // and creates two versions: normal and minified.
@@ -139,7 +139,7 @@ gulp.task('watch', function () {
     //livereload.listen();
 
     // don't listen to whole js folder, it'll create an infinite loop
-    gulp.watch(['./js/**/*.js', '!./js/dist/*.js'], ['scripts'])
+    gulp.watch(['./js/**/*.js', '!./js/dist/*.js'], ['scripts']);
 
     gulp.watch('./sass/**/*.scss', ['sass']);
 

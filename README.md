@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/boehmers/gossenpoeten_theme.svg?branch=master)](https://travis-ci.org/boehmers/gossenpoeten_theme)
+
 Getting started
 ===
 1. clone or fork the project into the wordpress themes folder

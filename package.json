@@ -4,7 +4,8 @@
   "description": "a wordpress theme for the band \"gossenpoeten\"",
   "main": "gulpfile.js",
   "scripts": {
-    "gulp": "gulp",
+    "gulp-watch": "gulp",
+    "build": "gulp scripts & gulp sass & gulp zip",
     "bower install": "bower install",
     "gulp icons": "gulp icons"
   },
