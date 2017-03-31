@@ -32,6 +32,7 @@ gulp.task('zip', function () {
     return gulp.src([
         '*',
         './fonts/*',
+        './images/*',
         './inc/*',
         './js/**/*',
         './languages/*',
