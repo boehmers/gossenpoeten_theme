@@ -1,4 +1,16 @@
 // set the bootstap vars to the color vars in _colors.scss
-$link-color: $color__link;
-$body-bg: $color__background-body;
-$text-color: $color__text-main;
+$link-color: $color__light-green;
+$body-bg: $color__black;
+$text-color: $color__light-white;
+
+$input-bg: $color__black;
+$input-border: $color__dark-green;
+
+$btn-default-bg: $color__light-grey;
+$btn-default-border: $color__dark-green;
+$btn-default-color: $color__light-white;
+
+$panel-bg: $color__black;
+$panel-default-border: $color__dark-green;
+$panel_default-heading-bg: $color__dark-green;
+$panel_default-text: $color__light-white;
