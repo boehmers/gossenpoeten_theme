@@ -8285,6 +8285,17 @@ button.close {
       color: #333333; }
 
 /*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+  margin: auto;
+  background: #000;
+  color: #777; }
+  .site-footer .site-info {
+    margin: 20px;
+    text-align: center; }
+
+/*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
 .page-content .wp-smiley,
@@ -8308,7 +8319,6 @@ img {
   display: block; }
 
 .header-image {
-  max-width: auto;
   max-height: 250px;
   margin: auto; }
 
