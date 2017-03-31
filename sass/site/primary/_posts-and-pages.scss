@@ -38,3 +38,31 @@
 		@include make-md-column(3);
 	}
 }
+
+.entry-meta,
+.entry-footer {
+	font-size: 12px;
+
+	.fa {
+		color: $color__light-grey;
+		margin-right: 2px;
+	}
+
+	span {
+		margin-right: 15px;
+		display: inline-block;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	a {
+		color: $color__light-grey;
+
+		&:hover {
+			text-decoration: none;
+			color: $gray-dark;
+		}
+	}
+}
