@@ -14,6 +14,8 @@ var gulp = require('gulp'),
 imagemin = require('gulp-imagemin');
 bower = require('gulp-bower');
 zip = require('gulp-zip');
+fs = require('fs');
+path = require('path');
 
 var config = {
     bowerDir: './bower_components'
@@ -25,7 +27,7 @@ var onError = function (err) {
     this.emit('end');
 };
 
-// Zip files up
+// Zip theme files up
 gulp.task('zip', function () {
     return gulp.src([
         '*',
@@ -37,9 +39,31 @@ gulp.task('zip', function () {
         './template-parts/*',
         '!bower_components',
         '!node_modules',
+        '!plugins',
     ], {base: "."})
         .pipe(zip('gossenpoeten_theme.zip'))
-        .pipe(gulp.dest('.'));
+        .pipe(gulp.dest('./build'));
+});
+
+var pluginsPath = 'plugins';
+
+function getFolders(dir) {
+    return fs.readdirSync(dir)
+        .filter(function(file) {
+            return fs.statSync(path.join(dir, file)).isDirectory();
+        });
+}
+
+gulp.task('plugins', function() {
+    var folders = getFolders(pluginsPath);
+
+    var tasks = folders.map(function(folder) {
+        return gulp.src(path.join(pluginsPath, folder, '/**'))
+            .pipe(zip(folder + '.zip'))
+            .pipe(gulp.dest('./build'))
+    });
+
+    return tasks;
 });
 
 // Install all Bower components
