@@ -1,5 +1,5 @@
 {
-  "name": "strapped",
+  "name": "gossenpoeten_theme",
   "version": "1.0.0",
   "homepage": "",
   "description": "Bootstrap 3 WordPress theme",
@@ -7,7 +7,7 @@
     "node"
   ],
   "authors": [
-    "Brad Williams"
+    "Manuel Böhm"
   ],
   "ignore": [
     "**/.*",
