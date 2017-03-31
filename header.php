@@ -62,5 +62,5 @@
         </nav>
     </header><!-- #masthead -->
 
-    <div id="content" class="site-content">
+    <div id="content" class="site-content" style="width: 100%">
         <div class="container">
