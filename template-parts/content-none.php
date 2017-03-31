@@ -22,13 +22,13 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'gossenpoeten_theme' ); ?></p>
+			<p><?php esc_html_e( 'Sorry, aber sowas findest du hier nicht. Überprüfe nochmals deine Suchanfrage', 'gossenpoeten_theme' ); ?></p>
 			<?php
 				get_search_form();
 
 		else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'gossenpoeten_theme' ); ?></p>
+			<p><?php esc_html_e( 'Ups, das gibt es wohl nicht. Versuche es mal mit einer Suche.', 'gossenpoeten_theme' ); ?></p>
 			<?php
 				get_search_form();
 
