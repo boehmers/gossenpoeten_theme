@@ -1,6 +1,6 @@
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
-.comment-content .wp-smiley {
+.wp-smiley {
 	border: none;
 	margin-bottom: 0;
 	margin-top: 0;
@@ -19,6 +19,12 @@ img {
 	max-width: 100%;
 	height: auto;
 	display: block;
+}
+
+.header-image {
+	max-width: auto;
+	max-height: 250px;
+	margin: auto;
 }
 
 /*--------------------------------------------------------------

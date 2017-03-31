@@ -21,9 +21,9 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'strapped' ); ?></a>
 
     <header id="masthead" class="site-header" role="banner">
+        <img class="header-image" src="<?php echo get_template_directory_uri(); ?>/images/gossenpoeten-logo.png"/>
         <nav role="navigation" id="navbar-main">
             <div class="navbar navbar-inverse navbar-static-top">
                 <div class="container">
@@ -35,7 +35,7 @@
                             <span class="icon-bar"></span>
                         </button>
 
-                        <?php strapped_the_custom_logo(); ?>
+                        <?php gossenpoeten_theme_the_custom_logo(); ?>
 
                     </div>
 

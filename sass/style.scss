@@ -21,6 +21,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 @import "vars/variables-site";
 @import "bootstrap";
+$fa-font-path: "./fonts";
+@import "font-awesome";
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
