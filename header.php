@@ -15,11 +15,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.8&appId=1462055033817868";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+<div id="fb-root"></div>
 <div id="page" class="site">
 
     <header id="masthead" class="site-header" role="banner">
