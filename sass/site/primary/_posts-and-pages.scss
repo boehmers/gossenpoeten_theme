@@ -37,6 +37,18 @@
 	.widget-area {
 		@include make-md-column(3);
 	}
+
+	.content-area-1 {
+		@include make-md-column(6);
+		padding: 0;
+		margin-bottom: 2em;
+	}
+
+	.content-area-2 {
+		@include make-md-column(6);
+		padding: 0;
+		margin-bottom: 2em;
+	}
 }
 
 .entry-meta,
