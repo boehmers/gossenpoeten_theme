@@ -19,8 +19,13 @@ get_header(); ?>
 
 			<?php
 			while ( have_posts() ) : the_post();
-
-				get_template_part( 'template-parts/content', 'page' );
+			    // does the page have a template part?
+                if (locate_template('template-parts/content-' . $pagename . '.php') != '') {
+                    get_template_part('template-parts/content', $pagename);
+                } else {
+                    // else just display the static page content
+                    get_template_part('template-parts/content', 'page');
+                }
 
 			endwhile; // End of the loop.
 			?>
