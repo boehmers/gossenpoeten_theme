@@ -8327,6 +8327,28 @@ button.close {
       .site-content .widget-area {
         float: left;
         width: 25%; } }
+  .site-content .content-area-1 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 0;
+    margin-bottom: 2em; }
+    @media (min-width: 992px) {
+      .site-content .content-area-1 {
+        float: left;
+        width: 50%; } }
+  .site-content .content-area-2 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 0;
+    margin-bottom: 2em; }
+    @media (min-width: 992px) {
+      .site-content .content-area-2 {
+        float: left;
+        width: 50%; } }
 
 .entry-meta,
 .entry-footer {
