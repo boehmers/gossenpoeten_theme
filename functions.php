@@ -46,6 +46,7 @@ if (!function_exists('gossenpoeten_theme_setup')) :
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
             'primary' => esc_html__('Primary', 'gossenpoeten_theme'),
+            'social' => __( 'Social Links Menu', 'gossenpoeten_theme' ),
         ));
 
         /*
