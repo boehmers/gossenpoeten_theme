@@ -8485,8 +8485,7 @@ img {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: black; }
+  overflow: auto; }
 
 /* Modal Content */
 .modal-content {
@@ -8495,7 +8494,8 @@ img {
   margin: auto;
   padding: 0;
   width: 90%;
-  max-width: 1200px; }
+  width: 1200px;
+  margin: auto; }
 
 /* The Close Button */
 .close {
@@ -8572,3 +8572,14 @@ img.hover-shadow {
 
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.gallery-thumbnail {
+  cursor: pointer; }
+
+.gallery-thumbnail img {
+  border: 2px solid darkgreen;
+  width: 256px;
+  height: 256px; }
+
+.gallery-thumbnail img:hover {
+  opacity: .5; }
