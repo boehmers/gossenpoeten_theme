@@ -22,9 +22,10 @@ if ($cat_posts->have_posts()) : while ($cat_posts->have_posts()) : $cat_posts->t
             }
 
             the_title( '<h2 class="entry-title" style="color: #1bb569;">','</h2>' );?>
-            <div class="gallery-thumbnail">
-                <img src="<?php the_post_thumbnail_url(); ?>" onclick="openModal(<?php the_ID() ?>);currentSlide(1,<?php the_ID(); ?>)" class="hover-shadow">
-                <div style="float: left;">
+            <div class="gallery-thumbnail"  onclick="openModal(<?php the_ID() ?>);currentSlide(1,<?php the_ID(); ?>)" style="">
+                <img src="<?php the_post_thumbnail_url(); ?>" class="hover-shadow">
+            </div>
+            <div style="float: left;">
                     <?php
                    
                     $text = wpautop( $post->post_content );
@@ -32,7 +33,6 @@ if ($cat_posts->have_posts()) : while ($cat_posts->have_posts()) : $cat_posts->t
                     $text = strip_shortcodes( $text );
                     echo $text;
                     ?>
-                </div>
             </div>
 
             <div id="myModal<?php the_ID() ?>" class="modal">
