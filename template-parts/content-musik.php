@@ -67,3 +67,14 @@ $cat_posts = new WP_query($args);
     </div>
 <?php
 endwhile; endif;
+
+$args2 = array (
+    'category_name' => 'musik',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+);
+
+$cat_posts2 = new WP_query($args2);
+if ($cat_posts2->have_posts()) : while ($cat_posts2->have_posts()) : $cat_posts2->the_post();
+    get_template_part( 'template-parts/content', get_post_format() );
+endwhile; endif;
