@@ -14,12 +14,16 @@ $cat_posts = new WP_query($args);
     <div class="col-xs-9" style="text-align: right;">
         <ul class="social-network social-circle">
             <li>
-                <a href="https://www.spotify.com//" class="icoFacebook" title="Spotify" style="display: inline-block;">
+                <a href="https://www.spotify.com//" class="icoSpotify" title="Spotify" style="display: inline-block;">
                     <i class="fa fa-spotify"></i></a>
             </li>
             <li>
-                <a href="https://www.amazon.de" class="icoYouTube" title="Spotify" style="display: inline-block;">
+                <a href="https://www.amazon.de" class="icoAmazon" title="Spotify" style="display: inline-block;">
                     <i class="fa fa-amazon"></i></a>
+            </li>
+            <li>
+                <a href="https://www.itunes.com" class="icoItunes" title="iTunes" style="display: inline-block;">
+                    <i class="fa fa-apple"></i></a>
             </li>
          </ul>
     </div>
@@ -27,6 +31,7 @@ $cat_posts = new WP_query($args);
 <?php
     if ($cat_posts->have_posts()) : while ($cat_posts->have_posts()) : $cat_posts->the_post();
     ?>
+        <h2 class="page-header">Alben</h2>
     <div class="gallery-wrapper">
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -76,5 +81,8 @@ $args2 = array (
 
 $cat_posts2 = new WP_query($args2);
 if ($cat_posts2->have_posts()) : while ($cat_posts2->have_posts()) : $cat_posts2->the_post();
+    ?>
+    <h2 class="page-header">Neuigkeiten</h2>
+<?php
     get_template_part( 'template-parts/content', get_post_format() );
 endwhile; endif;
