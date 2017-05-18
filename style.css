@@ -8474,7 +8474,7 @@ img {
   display: none;
   position: fixed;
   z-index: 1000;
-  padding-top: 10%;
+  padding-top: 5%;
   left: 0;
   top: 0;
   width: 100%;
@@ -8488,9 +8488,12 @@ img {
   background-color: #fefefe;
   margin: auto;
   padding: 0;
-  max-width: 80%;
-  width: 1200px;
+  max-width: 600px;
+  max-height: 100%;
   margin: auto; }
+
+.modal-content img {
+  height: 80%; }
 
 /* The Close Button */
 .close {
@@ -8585,7 +8588,8 @@ img.hover-shadow {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%); }
+          transform: translateY(-50%);
+  max-height: 100%; }
 
 .gallery-thumbnail:hover {
   opacity: .5; }
