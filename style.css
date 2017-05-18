@@ -8553,7 +8553,7 @@ img {
   display: none;
   position: fixed;
   z-index: 1000;
-  padding-top: 10%;
+  padding-top: 10vh;
   left: 0;
   top: 0;
   width: 100%;
@@ -8568,6 +8568,7 @@ img {
   margin: auto;
   padding: 0;
   max-width: 80%;
+  min-width: 800px;
   width: 1200px;
   margin: auto; }
 
