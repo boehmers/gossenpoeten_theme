@@ -141,3 +141,103 @@ require get_template_directory() . '/inc/jetpack.php';
  * Bootstrap Walker Menu
  */
 require get_template_directory() . '/inc/bootstrap-walker.php';
+
+// 18.04.2017 Max: Custom-Post-Type für Termine erstellen
+    add_action('init', 'create_post_type_events');
+    function create_post_type_events() {
+        register_post_type( 'event_dates',
+            array(
+                'labels' => array(
+                'name' => __( 'Termine' ),
+                'singular_name' => __( 'Termine' ),
+            ),
+                'public' => true,
+                'has_archive' => true
+            )
+        );
+    }
+
+// 18.04.2017 Max: Custom-Fields für Termine hinzufügen
+    add_action( 'admin_init', 'add_tour_dates_meta_box' );
+    function add_tour_dates_meta_box() {
+        add_meta_box(   'tour_dates_meta_box',
+                        'Termine Details',
+                        'display_tour_dates_meta_box',
+                        'event_dates'
+        );
+    }
+
+    const META_DATE = 'dates_date'; // Datum
+    const META_LOCATION = 'dates_location'; // Ort
+    const META_TIME = 'dates_time'; // Uhrzeit
+    const META_ADDRESS = 'dates_address'; // Adresse für Google Maps
+    const META_ORGANIZER = 'dates_organizer'; // Veranstalter
+    const META_ORGANIZER_LINK = 'dates_organizer_link'; // Verlinkung zum Veranstalter
+    const META_TICKETS = 'dates_tickets'; // Link zu etwaigen Tickets
+
+    function display_tour_dates_meta_box( $post ) {
+        $date = esc_html( get_post_meta($post->ID, META_DATE, true ));
+        $location = esc_html( get_post_meta($post->ID, META_LOCATION, true ));
+        $time = esc_html( get_post_meta($post->ID, META_TIME, true ));
+        $address = esc_html( get_post_meta($post->ID, META_ADDRESS, true ));
+        $organizer = esc_html( get_post_meta($post->ID, META_ORGANIZER, true )); 
+        $organizer_link = esc_html( get_post_meta($post->ID, META_ORGANIZER_LINK, true ));
+        $tickets = esc_html( get_post_meta($post->ID, META_TICKETS, true )); ?>
+        <table>
+            <tr>
+                <td style="width: 100%">Datum (Format: DD.MM.YYYY)</td>
+                <td><input type="text" size="50" name="<?php echo META_DATE;?>" value="<?php echo $date; ?>"></td>
+            </tr>
+            <tr>
+                <td style="width: 100%">Ort (Bsp.: "München")</td>
+                <td><input type="text" size="50" name="<?php echo META_LOCATION;?>" value="<?php echo $location; ?>"></td>
+            </tr>
+            <tr>
+                <td style="width: 100%">Veranstalter/Location (Bsp.: "Löwensaal")</td>
+                <td><input type="text" size="50" name="<?php echo META_ORGANIZER;?>" value="<?php echo $organizer; ?>"></td>
+            </tr>
+            <tr>
+                <td style="width: 100%">Veranstalter-Website (für richtige Verlinkung; Format: "www.xyz.de" ohne "http://")</td>
+                <td><input type="text" size="50" name="<?php echo META_ORGANIZER_LINK;?>" value="<?php echo $organizer_link; ?>"></td>
+            </tr>
+            <tr>
+                <td style="width: 100%">Uhrzeit (ohne "Uhr" -> Bsp.: "20:30")</td>
+                <td><input type="text" size="50" name="<?php echo META_TIME;?>" value="<?php echo $time; ?>"></td>
+            </tr>
+            <tr>
+                <td style="width: 100%">Adresse (zur richtigen Verlinkung zu Google Maps)</td>
+                <td><input type="text" size="50" name="<?php echo META_ADDRESS;?>" value="<?php echo $address; ?>"></td>
+            </tr>            
+            <tr>
+                <td style="width: 100%">Tickets-Link ("Tickets" wird in der Tabelle nur angezeigt, wenn dieses Feld nicht leer ist)</td>
+                <td><input type="text" size="50" name="<?php echo META_TICKETS;?>" value="<?php echo $tickets; ?>"></td>
+            </tr>            
+        </table> <?php
+    }
+
+    add_action( 'save_post', 'save_tour_dates_meta' );
+    function save_tour_dates_meta( $post_id ) {
+        if ( $_POST['post_type']=='event_dates' ) {
+            if ( isset( $_POST[META_DATE] ) ) {
+                update_post_meta($post_id, META_DATE, $_POST[META_DATE]);
+            }            
+            if ( isset( $_POST[META_LOCATION] ) ) {
+                update_post_meta($post_id, META_LOCATION, $_POST[META_LOCATION]);
+            }              
+            if ( isset( $_POST[META_ORGANIZER] ) ) {
+                update_post_meta($post_id, META_ORGANIZER, $_POST[META_ORGANIZER]);
+            }            
+            if ( isset( $_POST[META_TIME] ) ) {
+                update_post_meta($post_id, META_TIME, $_POST[META_TIME]);
+            }            
+            if ( isset( $_POST[META_ADDRESS] ) ) {
+                update_post_meta($post_id, META_ADDRESS, $_POST[META_ADDRESS]);
+            }            
+            if ( isset( $_POST[META_ORGANIZER_LINK] ) ) {
+                update_post_meta($post_id, META_ORGANIZER_LINK, $_POST[META_ORGANIZER_LINK]);
+            }            
+            if ( isset( $_POST[META_TICKETS] ) ) {
+                update_post_meta($post_id, META_TICKETS, $_POST[META_TICKETS]);
+            }
+        }
+    }
