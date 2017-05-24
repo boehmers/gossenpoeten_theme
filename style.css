@@ -8535,3 +8535,98 @@ img {
 
 .gallery-caption {
   display: block; }
+
+
+/*--------------------------------------------------------------
+## Video-Gallery
+--------------------------------------------------------------*/
+
+  .video-gallery {
+    background: #000000;
+    padding-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    width: 30%; 
+    height: 14%; 
+    margin: 1%;
+    float: left;
+
+  }
+
+
+
+  .videoTitle {
+    margin: auto;
+    display: block;
+    padding-top: 20px;
+    text-align: center;
+    color: white;
+  }
+
+ 
+  .video-gallery img {
+    width: 100%; 
+    height: auto; 
+    opacity: 1;
+  }
+
+  .video-gallery img:hover, .video img:active, .video img:focus {
+    opacity: 0.75;
+  }
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+    text-align: center;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+	/*background: #000000;  /*Black w/ opacity 
+	color: #000000;*/
+
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    /*max-width: 700px;*/
+
+	background-color: #000000;
+
+}
+
+
+
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold; }
+
+
+
+
+
+/* 100% Image Width on Smaller Screens 
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}*/
+
+
+
