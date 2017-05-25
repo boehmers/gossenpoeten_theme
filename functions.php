@@ -175,7 +175,6 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
     const META_ORGANIZER_LINK = 'dates_organizer_link'; // Verlinkung zum Veranstalter
     const META_TICKETS = 'dates_tickets'; // Link zu etwaigen Tickets
     const META_ICAL_FILENAME = 'dates_ical_filename'; // Link iCal-Datei
-    const META_VISIBILITY = 'dates_visibility'; // Sichtbarkeit (Privat <-> Öffentlich)
 
     function display_tour_dates_meta_box( $post ) {
         $date = esc_html( get_post_meta($post->ID, META_DATE, true ));
@@ -250,9 +249,6 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
                 }            
                 if ( isset( $_POST[META_TICKETS] ) ) {
                     update_post_meta($post_id, META_TICKETS, $_POST[META_TICKETS]);
-                }                
-                if ( isset( $_POST["post_status"] ) ) {
-                    update_post_meta($post_id, META_VISIBILITY, $_POST["post_status"]);
                 }
 
                 // Erzeuge/Aktualisiere die iCal-Datei
@@ -314,7 +310,6 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
                         $event["organizer"] = get_post_meta($post_id, 'dates_organizer', true);
                         $event["organizer_link"] = get_post_meta($post_id, 'dates_organizer_link', true);
                         $event["tickets"] = get_post_meta($post_id, 'dates_tickets', true);
-                        $event["visibility"] = get_post_meta($post_id, 'dates_visibility', true);
                         
                         $events_array[] = $event;
                     } 
@@ -334,7 +329,7 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
                         $timestamp_now = time();
                         $timestamp_event = strtotime($event["date"]." ".$event["time"].":0");
 
-                        if($timestamp_now <= $timestamp_event && $event["visibility"] !== "private"){
+                        if($timestamp_now <= $timestamp_event){
                             $upcoming_events[] = $event;
                         }
                     }
