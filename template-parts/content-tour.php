@@ -62,10 +62,10 @@
 					if($timestamp_now <= $timestamp_event){
 					?>
 					<tr>
-						<td><?php echo $event["date"]; ?></td>
+						<td><?php echo $event["date"]; ?> <a href="#"><span class="dashicons dashicons-calendar-alt"></span></a></td>
 						<td><?php echo $event["time"]; ?></td>
 						<?php if($event["organizer_link"] !== ""){?>
-							<td><a href=<?php echo $event['organizer_link'];?>><?php echo $event["organizer"]; ?></a></td>
+							<td><a target="_blank" href=<?php echo $event['organizer_link'];?>><?php echo $event["organizer"]; ?></a></td>
 						<?php }else{ ?>
 							<td><?php echo $event["organizer"]; ?></td>
 						<?php } ?>
@@ -77,12 +77,12 @@
 								$address = str_replace(',', '', $address);
 								$address = "http://maps.google.de/maps?q=".$address; 
 
-								echo "<a href='".$address."'>".$event["location"]."</a>"
+								echo "<a target='_blank' href='".$address."'>".$event["location"]."</a>"
 							?>
 						</td>
 						<td><?php echo $event["name"]; ?></td>
 						<?php if($event["tickets"] !== ""){?>
-							<td><a href=http://<?php echo $event['tickets']; ?>><button class="btn btn-success btn-xs">Tickets</button></a></td>
+							<td><a target="_blank" href=http://<?php echo $event['tickets']; ?>><button class="btn btn-success btn-xs">Tickets</button></a></td>
 						<?php }else{?>
 							<td></td>
 						<?php } ?>
@@ -114,7 +114,7 @@
 						<td><?php echo $event["date"]; ?></td>
 						<td><?php echo $event["time"]; ?></td>
 						<?php if($event["organizer_link"] !== ""){?>
-							<td><a href=http://<?php echo $event['organizer_link']; ?>><?php echo $event["organizer"]; ?></a></td>
+							<td><a target="_blank" href=http://<?php echo $event['organizer_link']; ?>><?php echo $event["organizer"]; ?></a></td>
 						<?php }else{ ?>
 							<td><?php echo $event["organizer"]; ?></td>
 						<?php } ?>
@@ -126,7 +126,7 @@
 								$address = str_replace(',', '', $address);
 								$address = "http://maps.google.de/maps?q=".$address; 
 
-								echo "<a href='".$address."'>".$event["location"]."</a>"
+								echo "<a target='_blank' href='".$address."'>".$event["location"]."</a>"
 							?>
 						</td>
 						<td><?php echo $event["name"]; ?></td>
