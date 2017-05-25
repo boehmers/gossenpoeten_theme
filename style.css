@@ -8535,3 +8535,16 @@ img {
 
 .gallery-caption {
   display: block; }
+
+/*
+    Widget - Nächster Termin
+*/
+
+.tour_widget{
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+.widget_small_text{
+  font-size: 12px;
+}
