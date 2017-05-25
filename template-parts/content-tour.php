@@ -62,6 +62,7 @@
 						$time = $time = "T".str_replace(":", "", $event["time"])."00";
 						$icalLink = "/../../../../wp-admin/ical/".$event["ical_filename"].".ics";
 
+					//Kommende Veranstaltungen
 					if($timestamp_now <= $timestamp_event){
 					?>
 					<tr>
@@ -111,6 +112,7 @@
 						$timestamp_now = time();
 						$timestamp_event = strtotime($event["date"]." ".$event["time"].":0");
 
+					//Vergangene Veranstaltungen
 					if($timestamp_now > $timestamp_event){
 					?>
 					<tr>

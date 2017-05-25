@@ -266,3 +266,112 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
             }
 
     }
+
+//Sidebar Widget um den nächsten (öffentlichen) Termin anzuzeigen
+    // Register and load the widget
+        function wpb_load_widget() {
+            register_widget( 'tour_widget' );
+        }
+        add_action('widgets_init','wpb_load_widget');
+
+// Creating the widget 
+    class tour_widget extends WP_Widget {
+
+        function __construct() {
+            $widget_options = array('description' => 'Einfaches Widget um den nächsten öffentlichen Termin anzuzeigen');
+
+            parent::__construct('tour_widget', "Tour-Widget", $widget_options);
+        }
+
+        // Creating widget front-end
+            public function widget( $args, $instance ) {
+                $title = apply_filters( 'widget_title', $instance['title'] );
+
+                // before and after widget arguments are defined by themes
+                    echo $args['before_widget'];
+                    if ( ! empty( $title ) )
+                        echo $args['before_title'] . $title . $args['after_title'];
+
+                // Get the next event 
+                    $args = array('post_type' => 'event_dates');
+                    $loop = new WP_Query( $args );
+                    $events_array = array();
+
+                    while ( $loop->have_posts() ) {
+                        $loop->the_post(); 
+                        $post_id = get_the_ID();
+
+                        $event = array();
+                        $event["name"] = get_the_title();
+                        $event["date"] = get_post_meta($post_id, 'dates_date', true); 
+                        $event["time"] = get_post_meta($post_id, 'dates_time', true);
+                        $event["location"] = get_post_meta($post_id, 'dates_location', true);
+                        $event["address"] = get_post_meta($post_id, 'dates_address', true);
+                        $event["organizer"] = get_post_meta($post_id, 'dates_organizer', true);
+                        $event["organizer_link"] = get_post_meta($post_id, 'dates_organizer_link', true);
+                        $event["tickets"] = get_post_meta($post_id, 'dates_tickets', true);
+                        
+                        $events_array[] = $event;
+                    } 
+
+                    function timeSort($item1,$item2)
+                    {
+                        if (strtotime($item1['date']) == strtotime($item2['date'])){
+                            return (str_replace(':', '', $item1['time']) > str_replace(':', '', $item2['time'])) ? 1 : -1;
+                        }else {
+                            return (strtotime($item1['date']) > strtotime($item2['date'])) ? 1 : -1;
+                        }
+                    }
+                    usort($events_array,'timeSort');
+
+                    $upcoming_events = array();
+                    foreach ($events_array as $event){
+                        $timestamp_now = time();
+                        $timestamp_event = strtotime($event["date"]." ".$event["time"].":0");
+
+                        if($timestamp_now <= $timestamp_event){
+                            $upcoming_events[] = $event;
+                        }
+                    }
+
+
+                // This is where you run the code and display the output
+                    echo "<div class='tour_widget'>";
+                        echo "<p>";
+                            echo "<b>".$upcoming_events[0]["name"]."</b><br>";
+                            echo "<span class='widget_small_text'>".$upcoming_events[0]["date"]." ".$upcoming_events[0]["time"]."<br>";
+                            echo $upcoming_events[0]["organizer"]."<br>";
+                            echo $upcoming_events[0]["location"]."</span>";
+                            if($upcoming_events[0]["tickets"] !== ""){
+                                echo "<br><a target='_blank' href='http://".$upcoming_events[0]["tickets"]."'><button class='btn btn-success btn-xs'>Tickets</button></a>";
+                            }
+                        echo "</p>";
+                    echo "</div>";
+
+                echo $args['after_widget'];
+            }
+                
+        // Widget Backend 
+            public function form($instance){
+                if (isset($instance['title'])){
+                    $title = $instance['title'];
+                }
+                else{
+                    $title = "Neuer Titel";
+                }
+                // Widget admin form
+                    ?>
+                    <p>
+                        <label for="<?php echo $this->get_field_id( 'title' ); ?>">Titel</label> 
+                        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+                    </p>
+                    <?php 
+            }
+            
+        // Updating widget replacing old instances with new
+        public function update( $new_instance, $old_instance ) {
+            $instance = array();
+            $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+            return $instance;
+        }
+    } // Class
