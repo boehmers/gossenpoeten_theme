@@ -1,7 +1,7 @@
 <?php
 	include_once("/../helpers/ical-export.php");
 
-	$args = array( 	'post_type' => 'event_dates');
+	$args = array('post_type' => 'event_dates');
 	$loop = new WP_Query( $args );
 	$events_array = array();
 
@@ -99,7 +99,6 @@
 				<th>Veranstalter</th>
 				<th>Ort</th>
 				<th>Name</th>
-				<th></th>
 			</tr>
 			<?php
 				date_default_timezone_set('Europe/Berlin');
@@ -131,11 +130,6 @@
 							?>
 						</td>
 						<td><?php echo $event["name"]; ?></td>
-						<?php if($event["tickets"] !== ""){?>
-							<td><a href=http://<?php echo $event['tickets']; ?>><button class="btn btn-success btn-xs">Tickets</button></a></td>
-						<?php }else{?>
-							<td></td>
-						<?php } ?>
 					</tr>
 			<?php }} ?>
 		</table>
