@@ -1,6 +1,4 @@
 <?php
-	include_once("/../helpers/ical-export.php");
-
 	$args = array('post_type' => 'event_dates');
 	$loop = new WP_Query( $args );
 	$events_array = array();
@@ -18,6 +16,7 @@
 		$event["organizer"] = get_post_meta($post_id, 'dates_organizer', true);
 		$event["organizer_link"] = get_post_meta($post_id, 'dates_organizer_link', true);
 		$event["tickets"] = get_post_meta($post_id, 'dates_tickets', true);
+		$event["ical_filename"] = get_post_meta($post_id, 'dates_ical_filename', true);
 
 		$events_array[] = $event;
 
@@ -59,10 +58,14 @@
 						$timestamp_now = time();
 						$timestamp_event = strtotime($event["date"]." ".$event["time"].":0");
 
+					//iCal-Datei-Link generieren
+						$time = $time = "T".str_replace(":", "", $event["time"])."00";
+						$icalLink = "/../../../../wp-admin/ical/".$event["ical_filename"].".ics";
+
 					if($timestamp_now <= $timestamp_event){
 					?>
 					<tr>
-						<td><?php echo $event["date"]; ?> <a href="#"><span class="dashicons dashicons-calendar-alt"></span></a></td>
+						<td><?php echo $event["date"]; ?> <a href=<?php echo $icalLink; ?>><span class="dashicons dashicons-calendar-alt"></span></a></td>
 						<td><?php echo $event["time"]; ?></td>
 						<?php if($event["organizer_link"] !== ""){?>
 							<td><a target="_blank" href=<?php echo $event['organizer_link'];?>><?php echo $event["organizer"]; ?></a></td>

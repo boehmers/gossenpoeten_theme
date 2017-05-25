@@ -174,6 +174,7 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
     const META_ORGANIZER = 'dates_organizer'; // Veranstalter
     const META_ORGANIZER_LINK = 'dates_organizer_link'; // Verlinkung zum Veranstalter
     const META_TICKETS = 'dates_tickets'; // Link zu etwaigen Tickets
+    const META_ICAL_FILENAME = 'dates_ical_filename'; // Link iCal-Datei
 
     function display_tour_dates_meta_box( $post ) {
         $date = esc_html( get_post_meta($post->ID, META_DATE, true ));
@@ -217,27 +218,51 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
 
     add_action( 'save_post', 'save_tour_dates_meta' );
     function save_tour_dates_meta( $post_id ) {
-        if ( $_POST['post_type']=='event_dates' ) {
-            if ( isset( $_POST[META_DATE] ) ) {
-                update_post_meta($post_id, META_DATE, $_POST[META_DATE]);
-            }            
-            if ( isset( $_POST[META_LOCATION] ) ) {
-                update_post_meta($post_id, META_LOCATION, $_POST[META_LOCATION]);
-            }              
-            if ( isset( $_POST[META_ORGANIZER] ) ) {
-                update_post_meta($post_id, META_ORGANIZER, $_POST[META_ORGANIZER]);
-            }            
-            if ( isset( $_POST[META_TIME] ) ) {
-                update_post_meta($post_id, META_TIME, $_POST[META_TIME]);
-            }            
-            if ( isset( $_POST[META_ADDRESS] ) ) {
-                update_post_meta($post_id, META_ADDRESS, $_POST[META_ADDRESS]);
-            }            
-            if ( isset( $_POST[META_ORGANIZER_LINK] ) ) {
-                update_post_meta($post_id, META_ORGANIZER_LINK, $_POST[META_ORGANIZER_LINK]);
-            }            
-            if ( isset( $_POST[META_TICKETS] ) ) {
-                update_post_meta($post_id, META_TICKETS, $_POST[META_TICKETS]);
+        include_once("/helpers/ical-export.php");
+        // Speichere die Extra-Felder
+            if ( $_POST['post_type']=='event_dates' ) {
+                if ( isset( $_POST[META_DATE] ) ) {
+                    update_post_meta($post_id, META_DATE, $_POST[META_DATE]);
+
+                    // Aufbereiten für iCal-Export
+                        $date = explode(".", $_POST[META_DATE]);
+                        $date = array_reverse($date);
+                        $date = implode("", $date);
+                }            
+                if ( isset( $_POST[META_LOCATION] ) ) {
+                    update_post_meta($post_id, META_LOCATION, $_POST[META_LOCATION]);
+                }              
+                if ( isset( $_POST[META_ORGANIZER] ) ) {
+                    update_post_meta($post_id, META_ORGANIZER, $_POST[META_ORGANIZER]);
+                }            
+                if ( isset( $_POST[META_TIME] ) ) {
+                    update_post_meta($post_id, META_TIME, $_POST[META_TIME]);
+
+                    //Aufbereiten für iCal-Export
+                        $time = "T".str_replace(":", "", $_POST[META_TIME])."00";
+                }            
+                if ( isset( $_POST[META_ADDRESS] ) ) {
+                    update_post_meta($post_id, META_ADDRESS, $_POST[META_ADDRESS]);
+                }            
+                if ( isset( $_POST[META_ORGANIZER_LINK] ) ) {
+                    update_post_meta($post_id, META_ORGANIZER_LINK, $_POST[META_ORGANIZER_LINK]);
+                }            
+                if ( isset( $_POST[META_TICKETS] ) ) {
+                    update_post_meta($post_id, META_TICKETS, $_POST[META_TICKETS]);
+                }
+
+                // Erzeuge/Aktualisiere die iCal-Datei
+                    if(isset($date) && isset($time)){
+                        $event_array = array();
+                        $event_array["start"] = $date.$time;
+                        $event_array["location"] = $_POST[META_ORGANIZER]." ".$_POST[META_LOCATION];
+                        date_default_timezone_set('Europe/Berlin');
+                        $event_array["current_time"] = date("Ymd")."T".date("His");
+                        $event_array["title"] = "Gossenpoeten - ".$_POST["post_title"];
+                        $event_array["url"] = $_POST[META_ORGANIZER_LINK];
+                        $filename = createICalFile($event_array);
+                        update_post_meta($post_id, META_ICAL_FILENAME, $filename);
+                    }
             }
-        }
+
     }
