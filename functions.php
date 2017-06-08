@@ -218,7 +218,7 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
 
     add_action( 'save_post', 'save_tour_dates_meta' );
     function save_tour_dates_meta( $post_id ) {
-        include_once("/helpers/ical-export.php");
+        include_once("helpers/ical-export.php");
         // Speichere die Extra-Felder
             if ( $_POST['post_type']=='event_dates' ) {
                 if ( isset( $_POST[META_DATE] ) ) {
@@ -342,6 +342,7 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
                             echo "<span class='widget_small_text'>".$upcoming_events[0]["date"]." ".$upcoming_events[0]["time"]."<br>";
                             echo $upcoming_events[0]["organizer"]."<br>";
                             echo $upcoming_events[0]["location"]."</span>";
+                            echo "<br><a href=\"tour\">Mehr Infos</a>";
                             if($upcoming_events[0]["tickets"] !== ""){
                                 echo "<br><a target='_blank' href='http://".$upcoming_events[0]["tickets"]."'><button class='btn btn-success btn-xs'>Tickets</button></a>";
                             }

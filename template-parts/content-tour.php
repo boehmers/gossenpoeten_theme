@@ -66,7 +66,7 @@
 					if($timestamp_now <= $timestamp_event){
 					?>
 					<tr>
-						<td><?php echo $event["date"]; ?> <a href=<?php echo $icalLink; ?>><span class="dashicons dashicons-calendar-alt"></span></a></td>
+						<td><?php echo $event["date"]; ?> <!--<a href=<?php echo $icalLink; ?>><span class="dashicons dashicons-calendar-alt"></span></a>--></td>
 						<td><?php echo $event["time"]; ?></td>
 						<?php if($event["organizer_link"] !== ""){?>
 							<td><a target="_blank" href=<?php echo $event['organizer_link'];?>><?php echo $event["organizer"]; ?></a></td>
