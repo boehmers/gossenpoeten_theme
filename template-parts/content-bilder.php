@@ -44,7 +44,7 @@ if ($cat_posts->have_posts()) : while ($cat_posts->have_posts()) : $cat_posts->t
 
                     ?>
                         <div class="mySlides" name="slides<?php the_ID(); ?>">
-                            <div class="numbertext"><?php echo $counter ?>/<?php echo count($value)?></div>
+                            <div class="numbertext"><?php echo $counter ?>/<?php echo count($media["src"])?></div>
                             <img src="<?php echo $value; ?>" style="width:100%">
                             <div class="caption-container"><?php echo $caption[$counter-1]["caption"]; ?></div>
                         </div>
