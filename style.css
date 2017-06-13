@@ -3162,9 +3162,9 @@ tbody.collapse.in {
   list-style: none;
   font-size: 14px;
   text-align: left;
-  background-color: #fff;
+  background-color: #000;
   border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid #093c1f;
   border-radius: 4px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box; }
@@ -3182,19 +3182,19 @@ tbody.collapse.in {
     clear: both;
     font-weight: normal;
     line-height: 1.42857143;
-    color: #333333;
+    color: #fff;
     white-space: nowrap; }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
-  color: #262626;
-  background-color: #f5f5f5; }
+  color: #fff;
+  background-color: #093c1f; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   color: #fff;
   text-decoration: none;
   outline: 0;
-  background-color: #337ab7; }
+  background-color: #20814a; }
 
 .dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
   color: #777777; }
@@ -8274,6 +8274,95 @@ button.close {
     border: none;
     box-shadow: none; }
 
+.tour_widget {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center; }
+
+.widget_small_text {
+  font-size: 12px; }
+
+/*=========================
+  Icons
+ ================= */
+/* footer social icons */
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0; }
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px; }
+
+/* footer social icons */
+.social-network a.icoFacebook:hover {
+  background-color: #3B5998; }
+
+.social-network a.icoTwitter:hover {
+  background-color: #33ccff; }
+
+.social-network a.icoYouTube:hover {
+  background-color: #cb4437; }
+
+.social-network a.icoInstagram:hover {
+  background-color: #517fa4; }
+
+.social-network a.icoAmazon:hover {
+  background-color: #febd69; }
+
+.social-network a.icoSpotify:hover {
+  background-color: #19e68c; }
+
+.social-network a.icoItunes:hover {
+  background-color: #42a1ec; }
+
+.social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoYoutube:hover i, .social-network a.icoInstagram:hover i {
+  color: #fff; }
+
+a.socialIcon:hover, .socialHoverClass {
+  color: #44BCDD; }
+
+.social-circle li a {
+  position: relative;
+  border-radius: 50%;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  font-size: 20px; }
+  @media only screen and (max-width: 991px) {
+    .social-circle li a {
+      display: inline-block;
+      margin: 0 0 0 0; } }
+  @media only screen and (min-width: 992px) {
+    .social-circle li a {
+      display: block;
+      margin: 0 0 0 auto; } }
+
+.social-circle li i {
+  margin: 0;
+  line-height: 50px;
+  text-align: center; }
+
+.social-circle li a:hover i, .triggeredHover {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -ms--transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s; }
+
+.social-circle i {
+  color: #fff;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s; }
+
+.social-circle a {
+  background-color: #093c1f; }
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -8373,6 +8462,13 @@ button.close {
       color: #333333; }
 
 /*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+@media only screen and (min-width: 768px) {
+  ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block; } }
+
+/*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
 .site-footer {
@@ -8456,3 +8552,140 @@ img {
 
 .gallery-caption {
   display: block; }
+
+.row > .column {
+  padding: 0 8px; }
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.column {
+  float: left;
+  width: 25%; }
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 5%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9); }
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  max-width: 600px;
+  max-height: 100%;
+  margin: auto; }
+
+.modal-content img {
+  height: 80%; }
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer; }
+
+.mySlides {
+  display: none; }
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  -webkit-transition: 0.6s ease;
+          transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none; }
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px; }
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8); }
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0; }
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white; }
+
+img.demo {
+  opacity: 0.6; }
+
+.active,
+.demo:hover {
+  opacity: 1; }
+
+img.hover-shadow {
+  -webkit-transition: 0.3s;
+          transition: 0.3s; }
+
+.gallery-wrapper {
+  min-width: 250px;
+  max-width: 30%;
+  height: 30%;
+  display: inline-block;
+  margin-right: 40px; }
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.gallery-thumbnail {
+  cursor: pointer;
+  border: 2px solid darkgreen;
+  height: 256px;
+  width: 256px; }
+
+.gallery-thumbnail img {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  max-height: 100%; }
+
+.gallery-thumbnail:hover {
+  opacity: .5; }

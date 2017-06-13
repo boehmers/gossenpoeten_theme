@@ -38,6 +38,7 @@ gulp.task('zip', function () {
         './languages/*',
         './sass/**/*',
         './template-parts/*',
+        './favicon.ico',
         '!bower_components',
         '!node_modules',
         '!plugins',
