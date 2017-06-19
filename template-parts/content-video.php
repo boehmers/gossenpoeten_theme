@@ -1,4 +1,3 @@
-
 <?php
 require_once ('modal-video.php');
 /*
@@ -8,7 +7,7 @@ Template Name: content-videos
 //filter videos and store in $posts_array
 
 $args = array (
-'category' => 'videos',
+'category_name' => 'videos',
 // 'orderby' => 'date',
 'post_type' => 'post'
 );
@@ -19,7 +18,7 @@ $filter_array=array();
 $posts_array = get_posts($args); 
 
 
-//print_r($posts_array); 
+  //print_r($posts_array); 
  //check if there is content
   if(!empty($posts_array)) : 
   //loop through posts
@@ -56,9 +55,9 @@ else
 
 <div class= "col-md-4">
   <div id="post-<?php the_ID(); ?>"  class = "video-gallery" style="cursor:pointer">
-    <figure>
-       <a data-toggle="modal" data-target="#myModal-<?php the_ID(); ?>"><img src="<?php echo $thumb ?> " /> </a>
-    </figure>
+    <div>
+       <a data-toggle="modal" data-target="#myModal<?php the_ID(); ?>"><img src="<?php echo $thumb ?> " /> </a>
+    </div>
     <?php  //the_date(); ?>  
     <h2 class="videoTitle"  ><?php the_title(); ?> </h2>
   </div>
@@ -74,19 +73,15 @@ if($rowElementsCounter==3) {
 
 
     <!-- Modal -->
-<div class="modal fade" id="myModal-<?php the_ID(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal<?php the_ID(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close modal-close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><?php the_title(); ?></h4>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <?php the_post(); ?>test
       </div>
     </div>
   </div>

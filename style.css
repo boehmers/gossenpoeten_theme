@@ -8573,53 +8573,16 @@ img {
     opacity: 0.75;
   }
 
+  .modal-content{
+    background-color: #000;
+    border: 1px solid #fff;
+    margin-top: 100px;
+    min-height:300px;
+  }
 
-
-
-
-/* The Modal (background) */
-.modal {
-    text-align: center;
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-	/*background: #000000;  /*Black w/ opacity 
-	color: #000000;*/
-
-}
-
-/* Modal Content (Image) */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    /*max-width: 700px;*/
-
-	background-color: #000000;
-
-}
-
-
-
-
-/* The Close Button */
-.close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold; }
-
-
-
-
+  .modal-close-button{
+    color: #fff;
+  }
 
 /* 100% Image Width on Smaller Screens 
 @media only screen and (max-width: 700px){
