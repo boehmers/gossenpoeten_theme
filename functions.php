@@ -142,8 +142,8 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/inc/bootstrap-walker.php';
 
-wp_register_script( 'jquery', '/wp-content/themes/gossenpoeten/js/jquery.js');
+wp_register_script( 'jquery', get_stylesheet_directory_uri().'/js/jquery.js');
 wp_enqueue_script( 'jquery' );
 
-wp_register_script( 'bootstrap-script', '/wp-content/themes/gossenpoeten/js/bootstrap.min.js');
+wp_register_script( 'bootstrap-script', get_stylesheet_directory_uri().'/js/bootstrap.min.js');
 wp_enqueue_script( 'bootstrap-script' );
