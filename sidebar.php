@@ -15,7 +15,8 @@ if (!is_active_sidebar('sidebar-1')) {
 <aside id="secondary" class="widget-area" role="complementary">
     <?php dynamic_sidebar('sidebar-1');
     if ( has_nav_menu('social') ) : ?>
-    <div>
+    </section>
+    <div id="social-media-menu">
         <ul class="social-network social-circle">
             <?php
             $menu_name = 'social';
