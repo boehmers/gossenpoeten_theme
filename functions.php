@@ -218,7 +218,7 @@ require get_template_directory() . '/inc/bootstrap-walker.php';
 
     add_action( 'save_post', 'save_tour_dates_meta' );
     function save_tour_dates_meta( $post_id ) {
-        include_once("/helpers/ical-export.php");
+        include_once(get_template_directory()."/helpers/ical-export.php");
         // Speichere die Extra-Felder
             if ( $_POST['post_type']=='event_dates' ) {
                 if ( isset( $_POST[META_DATE] ) ) {
