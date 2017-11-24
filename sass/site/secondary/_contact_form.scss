@@ -1,0 +1,60 @@
+// Styles for the contact form
+
+.wpcf7-form-control:not(.wpcf7-recaptcha) {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #bbb;
+	background-color: #000;
+	background-image: none;
+	border: 1px solid $color__dark-green;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	&:focus {
+		border-color: #66afe9;
+		outline: 0;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	}
+	&::-moz-placeholder {
+		color: #999;
+		opacity: 1;
+	}
+	&:-ms-input-placeholder {
+		color: #999;
+	}
+	&::-webkit-input-placeholder {
+		color: #999;
+	}
+	&::-ms-expand {
+		border: 0;
+		background-color: transparent;
+	}
+  
+	&[disabled], &[readonly], fieldset[disabled] & {
+		background-color: #eeeeee;
+		opacity: 1;
+	}
+	&[disabled], fieldset[disabled] & {
+		cursor: not-allowed;
+	}
+	
+	@at-root textarea#{&} {
+		height: auto;
+	}
+}
+
+.wpcf7-form-control.wpcf7-submit {
+	max-width:30em;
+	background-color:$color__dark-green;
+	color:#fff;
+	box-shadow: 0px 0px 10px #fff;
+}
+
+.wpcf7-form-control.wpcf7-recaptcha {
+	margin-top:4em;
+	margin-bottom:4em;
+}

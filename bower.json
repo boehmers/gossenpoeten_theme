@@ -1,0 +1,23 @@
+{
+  "name": "gossenpoeten_theme",
+  "version": "1.0.0",
+  "homepage": "",
+  "description": "Bootstrap 3 WordPress theme",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Manuel Böhm"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "latest",
+    "fontawesome": "latest"
+  }
+}
