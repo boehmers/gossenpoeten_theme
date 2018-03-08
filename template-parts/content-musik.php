@@ -79,7 +79,6 @@ $args2 = array (
 $cat_posts2 = new WP_query($args2);
 if ($cat_posts2->have_posts()) : while ($cat_posts2->have_posts()) : $cat_posts2->the_post();
     ?>
-    <h2 class="page-header">Neuigkeiten</h2>
 <?php
     get_template_part( 'template-parts/content', get_post_format() );
 endwhile; endif;
