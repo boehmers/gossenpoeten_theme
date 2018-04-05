@@ -6,8 +6,8 @@
   "scripts": {
     "gulp-watch": "gulp",
     "build": "gulp sass & gulp zip & gulp plugins",
-    "bower install": "bower install",
-    "gulp icons": "gulp icons"
+    "bower-install": "bower install",
+    "gulp-icons": "gulp icons"
   },
   "repository": {
     "type": "git",

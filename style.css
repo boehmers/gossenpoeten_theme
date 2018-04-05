@@ -1116,7 +1116,6 @@ img {
   background-color: #000;
   border: 1px solid #ddd;
   border-radius: 4px;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   max-width: 100%;
@@ -2328,7 +2327,6 @@ output {
   border: 1px solid #093c1f;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
   .form-control:focus {
     border-color: #66afe9;
@@ -3104,7 +3102,6 @@ input[type="button"].btn-block {
 
 .fade {
   opacity: 0;
-  -webkit-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear; }
   .fade.in {
     opacity: 1; }
@@ -3124,11 +3121,8 @@ tbody.collapse.in {
   position: relative;
   height: 0;
   overflow: hidden;
-  -webkit-transition-property: height, visibility;
   transition-property: height, visibility;
-  -webkit-transition-duration: 0.35s;
   transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease;
   transition-timing-function: ease; }
 
 .caret {
@@ -4319,7 +4313,6 @@ a.badge:hover, a.badge:focus {
   background-color: #000;
   border: 1px solid #ddd;
   border-radius: 4px;
-  -webkit-transition: border 0.2s ease-in-out;
   transition: border 0.2s ease-in-out; }
   .thumbnail > img,
   .thumbnail a > img {
@@ -4399,12 +4392,6 @@ a.thumbnail.active {
   .alert-danger .alert-link {
     color: #843534; }
 
-@-webkit-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0; }
-  to {
-    background-position: 0 0; } }
-
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
@@ -4429,42 +4416,35 @@ a.thumbnail.active {
   text-align: center;
   background-color: #337ab7;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  -webkit-transition: width 0.6s ease;
   transition: width 0.6s ease; }
 
 .progress-striped .progress-bar,
 .progress-bar-striped {
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 40px 40px; }
 
 .progress.active .progress-bar,
 .progress-bar.active {
-  -webkit-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite; }
 
 .progress-bar-success {
   background-color: #5cb85c; }
   .progress-striped .progress-bar-success {
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-info {
   background-color: #5bc0de; }
   .progress-striped .progress-bar-info {
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-warning {
   background-color: #f0ad4e; }
   .progress-striped .progress-bar-warning {
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-danger {
   background-color: #d9534f; }
   .progress-striped .progress-bar-danger {
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .media {
@@ -5115,12 +5095,9 @@ button.close {
   -webkit-overflow-scrolling: touch;
   outline: 0; }
   .modal.fade .modal-dialog {
-    -webkit-transform: translate(0, -25%);
     transform: translate(0, -25%);
-    -webkit-transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out; }
   .modal.in .modal-dialog {
-    -webkit-transform: translate(0, 0);
     transform: translate(0, 0); }
 
 .modal-open .modal {
@@ -5454,7 +5431,6 @@ button.close {
   .carousel-inner > .item {
     display: none;
     position: relative;
-    -webkit-transition: 0.6s ease-in-out left;
     transition: 0.6s ease-in-out left; }
     .carousel-inner > .item > img,
     .carousel-inner > .item > a > img {
@@ -5464,22 +5440,16 @@ button.close {
       line-height: 1; }
     @media all and (transform-3d), (-webkit-transform-3d) {
       .carousel-inner > .item {
-        -webkit-transition: -webkit-transform 0.6s ease-in-out;
         transition: transform 0.6s ease-in-out;
-        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        -webkit-perspective: 1000px;
         perspective: 1000px; }
         .carousel-inner > .item.next, .carousel-inner > .item.active.right {
-          -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.prev, .carousel-inner > .item.active.left {
-          -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
           left: 0; }
         .carousel-inner > .item.next.left, .carousel-inner > .item.prev.right, .carousel-inner > .item.active {
-          -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
           left: 0; } }
   .carousel-inner > .active,
@@ -5519,14 +5489,12 @@ button.close {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   background-color: transparent; }
   .carousel-control.left {
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1); }
   .carousel-control.right {
     left: auto;
     right: 0;
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1); }
@@ -5841,15 +5809,15 @@ button.close {
     display: none !important; } }
 
 /*!
- *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("./fonts/fontawesome-webfont.eot?v=4.7.0");
-  src: url("./fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("./fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("./fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("./fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("./fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  src: url("./fonts/fontawesome-webfont.eot?v=4.6.3");
+  src: url("./fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("./fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("./fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("./fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("./fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -5930,52 +5898,35 @@ button.close {
   margin-left: .3em; }
 
 .fa-spin {
-  -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear; }
 
 .fa-pulse {
-  -webkit-animation: fa-spin 1s infinite steps(8);
   animation: fa-spin 1s infinite steps(8); }
-
-@-webkit-keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg); } }
 
 @keyframes fa-spin {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
   100% {
-    -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
 
 .fa-rotate-90 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
-  -webkit-transform: rotate(90deg);
   transform: rotate(90deg); }
 
 .fa-rotate-180 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
-  -webkit-transform: rotate(180deg);
   transform: rotate(180deg); }
 
 .fa-rotate-270 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
-  -webkit-transform: rotate(270deg);
   transform: rotate(270deg); }
 
 .fa-flip-horizontal {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
-  -webkit-transform: scale(-1, 1);
   transform: scale(-1, 1); }
 
 .fa-flip-vertical {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
-  -webkit-transform: scale(1, -1);
   transform: scale(1, -1); }
 
 :root .fa-rotate-90,
@@ -7663,7 +7614,6 @@ button.close {
   content: ""; }
 
 .fa-battery-4:before,
-.fa-battery:before,
 .fa-battery-full:before {
   content: ""; }
 
@@ -8010,143 +7960,6 @@ button.close {
 .fa-font-awesome:before {
   content: ""; }
 
-.fa-handshake-o:before {
-  content: ""; }
-
-.fa-envelope-open:before {
-  content: ""; }
-
-.fa-envelope-open-o:before {
-  content: ""; }
-
-.fa-linode:before {
-  content: ""; }
-
-.fa-address-book:before {
-  content: ""; }
-
-.fa-address-book-o:before {
-  content: ""; }
-
-.fa-vcard:before,
-.fa-address-card:before {
-  content: ""; }
-
-.fa-vcard-o:before,
-.fa-address-card-o:before {
-  content: ""; }
-
-.fa-user-circle:before {
-  content: ""; }
-
-.fa-user-circle-o:before {
-  content: ""; }
-
-.fa-user-o:before {
-  content: ""; }
-
-.fa-id-badge:before {
-  content: ""; }
-
-.fa-drivers-license:before,
-.fa-id-card:before {
-  content: ""; }
-
-.fa-drivers-license-o:before,
-.fa-id-card-o:before {
-  content: ""; }
-
-.fa-quora:before {
-  content: ""; }
-
-.fa-free-code-camp:before {
-  content: ""; }
-
-.fa-telegram:before {
-  content: ""; }
-
-.fa-thermometer-4:before,
-.fa-thermometer:before,
-.fa-thermometer-full:before {
-  content: ""; }
-
-.fa-thermometer-3:before,
-.fa-thermometer-three-quarters:before {
-  content: ""; }
-
-.fa-thermometer-2:before,
-.fa-thermometer-half:before {
-  content: ""; }
-
-.fa-thermometer-1:before,
-.fa-thermometer-quarter:before {
-  content: ""; }
-
-.fa-thermometer-0:before,
-.fa-thermometer-empty:before {
-  content: ""; }
-
-.fa-shower:before {
-  content: ""; }
-
-.fa-bathtub:before,
-.fa-s15:before,
-.fa-bath:before {
-  content: ""; }
-
-.fa-podcast:before {
-  content: ""; }
-
-.fa-window-maximize:before {
-  content: ""; }
-
-.fa-window-minimize:before {
-  content: ""; }
-
-.fa-window-restore:before {
-  content: ""; }
-
-.fa-times-rectangle:before,
-.fa-window-close:before {
-  content: ""; }
-
-.fa-times-rectangle-o:before,
-.fa-window-close-o:before {
-  content: ""; }
-
-.fa-bandcamp:before {
-  content: ""; }
-
-.fa-grav:before {
-  content: ""; }
-
-.fa-etsy:before {
-  content: ""; }
-
-.fa-imdb:before {
-  content: ""; }
-
-.fa-ravelry:before {
-  content: ""; }
-
-.fa-eercast:before {
-  content: ""; }
-
-.fa-microchip:before {
-  content: ""; }
-
-.fa-snowflake-o:before {
-  content: ""; }
-
-.fa-superpowers:before {
-  content: ""; }
-
-.fa-wpexplorer:before {
-  content: ""; }
-
-.fa-meetup:before {
-  content: ""; }
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -8351,14 +8164,11 @@ a.socialIcon:hover, .socialHoverClass {
   -moz-transform: rotate(360deg);
   -webkit-transform: rotate(360deg);
   -ms--transform: rotate(360deg);
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-  -webkit-transition: all 0.2s;
+  transform: rotate(360deg);
   transition: all 0.2s; }
 
 .social-circle i {
   color: #fff;
-  -webkit-transition: all 0.8s;
   transition: all 0.8s; }
 
 .social-circle a {
@@ -8382,8 +8192,7 @@ a.socialIcon:hover, .socialHoverClass {
   border: 1px solid #093c1f;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
   .wpcf7-form-control:not(.wpcf7-recaptcha):focus {
     border-color: #66afe9;
     outline: 0;
@@ -8755,8 +8564,7 @@ img {
 .gallery-control {
   position: absolute;
   top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%); }
+  transform: translate(0, -50%); }
 
 /* Next & previous buttons */
 .prev,
@@ -8772,8 +8580,7 @@ img {
   color: white;
   font-weight: bold;
   font-size: 20px;
-  -webkit-transition: 0.6s ease;
-          transition: 0.6s ease;
+  transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   -moz-user-select: none;
    -ms-user-select: none;
@@ -8813,8 +8620,7 @@ img.demo {
   opacity: 1; }
 
 img.hover-shadow {
-  -webkit-transition: 0.3s;
-          transition: 0.3s; }
+  transition: 0.3s; }
 
 .gallery-wrapper {
   min-width: 250px;
@@ -8835,8 +8641,7 @@ img.hover-shadow {
 .gallery-thumbnail img {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   max-height: 100%; }
 
 .gallery-thumbnail:hover {
