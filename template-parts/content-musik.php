@@ -28,10 +28,10 @@ $cat_posts = new WP_query($args);
          </ul>
     </div>
 </div>
+<h2 class="page-header">Alben</h2>
 <?php
     if ($cat_posts->have_posts()) : while ($cat_posts->have_posts()) : $cat_posts->the_post();
     ?>
-        <h2 class="page-header">Alben</h2>
     <div class="gallery-wrapper">
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -77,6 +77,9 @@ $args2 = array (
 );
 
 $cat_posts2 = new WP_query($args2);
+?>
+<h2 class="page-header">News</h2>
+<?php
 if ($cat_posts2->have_posts()) : while ($cat_posts2->have_posts()) : $cat_posts2->the_post();
     ?>
 <?php
