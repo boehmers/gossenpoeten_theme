@@ -35,6 +35,25 @@
 <div id="page" class="site">
 
     <header id="masthead" class="site-header" role="banner">
+        <div class="col-xs-9 musicMenu" style="text-align: right;">
+            <ul class="social-network social-circle">
+                <li>
+                    <a class="icoSpotify" title="Spotify" style="display: inline-block;"
+                    href="http://bit.ly/poetenNahAnSpotify" target="_blank">
+                        <i class="fa fa-spotify"></i></a>
+                </li>
+                <li>
+                    <a class="icoAmazon" title="Amazon" style="display: inline-block;"
+                    href="http://bit.ly/poetenNahAnAmazon" target="_blank">
+                        <i class="fa fa-amazon"></i></a>
+                </li>
+                <li>
+                    <a class="icoItunes" title="iTunes" style="display: inline-block;"
+                    href="http://bit.ly/poetenNahAmApfel" target="_blank">
+                        <i class="fa fa-apple"></i></a>
+                </li>
+            </ul>
+        </div>
         <a href="<?php echo esc_url(home_url('/')); ?>">
             <img class="header-image" src="<?php echo get_template_directory_uri(); ?>/images/gossenpoeten-logo.png"/>
         </a>

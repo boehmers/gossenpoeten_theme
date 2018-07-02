@@ -11,22 +11,6 @@ $cat_posts = new WP_query($args);
 ?>
 <div class="row">
     <h1 class="col-xs-3" style="margin-top:0;">Musik</h1>
-    <div class="col-xs-9" style="text-align: right;">
-        <ul class="social-network social-circle">
-            <li>
-                <a class="icoSpotify" title="Spotify" style="display: inline-block;">
-                    <i class="fa fa-spotify"></i></a>
-            </li>
-            <li>
-                <a class="icoAmazon" title="Spotify" style="display: inline-block;">
-                    <i class="fa fa-amazon"></i></a>
-            </li>
-            <li>
-                <a class="icoItunes" title="iTunes" style="display: inline-block;">
-                    <i class="fa fa-apple"></i></a>
-            </li>
-         </ul>
-    </div>
 </div>
 <h2 class="page-header">Alben</h2>
 <?php

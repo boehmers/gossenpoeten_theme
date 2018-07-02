@@ -8330,6 +8330,13 @@ a.socialIcon:hover, .socialHoverClass {
   ul.nav li.dropdown:hover ul.dropdown-menu {
     display: block; } }
 
+.musicMenu {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding-right: 0;
+  z-index: 9999; }
+
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
