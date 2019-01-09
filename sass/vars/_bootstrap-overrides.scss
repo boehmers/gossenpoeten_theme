@@ -1,7 +1,9 @@
 // set the bootstap vars to the color vars in _colors.scss
 $link-color: $color__light-green;
-$body-bg: $color__black;
 $text-color: $color__light-white;
+
+$navbar-default-bg: $color__dark-green;
+$navbar-inverse-bg: $color__dark-green;
 
 $input-bg: $color__black;
 $input-border: $color__dark-green;

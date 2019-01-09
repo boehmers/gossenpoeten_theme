@@ -17,7 +17,7 @@
 <footer id="colophon" class="site-footer" role="contentinfo">
     <div class="container">
         <div class="site-info">
-            &copy; 2017 Gossenpoeten GbR
+            &copy; 2019 Gossenpoeten GbR
             <span class="sep"> | </span>
             <a href="/impressum">Impressum</a>
         </div><!-- .site-info -->

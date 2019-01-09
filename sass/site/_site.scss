@@ -14,3 +14,17 @@
 ## Footer
 --------------------------------------------------------------*/
 @import "primary/footer";
+
+body {
+  background: #000000;
+  background: -webkit-linear-gradient(to bottom, #000000, #002308);
+  background: linear-gradient(to bottom, #000000, #002308);
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+@media (max-width: 560px) {
+  .responsive_hidden {
+    display: none;
+  }
+}
