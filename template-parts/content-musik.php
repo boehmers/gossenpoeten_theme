@@ -1,71 +1,79 @@
+
 <?php
-require_once ('modal.php');
+//get current page-id
+$pageid = get_the_ID();
+$page_link = get_page_link($pageid);
+?>
+
+<?php
+
 $args = array (
     'category_name' => 'alben',
-    'posts_per_page' => -1,
     'orderby' => 'date',
+    'post_type' => 'post'
 );
-
-$cat_posts = new WP_query($args);
-
+$posts_array = get_posts($args);
 ?>
-<div class="row">
-    <h1 class="col-xs-3" style="margin-top:0;">Musik</h1>
-</div>
-<h2 class="page-header">Alben</h2>
+
 <?php
-    if ($cat_posts->have_posts()) : while ($cat_posts->have_posts()) : $cat_posts->the_post();
-    ?>
-    <div class="gallery-wrapper">
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+//check if there is content
+if(!empty($posts_array)) : ?>
+    <div class="row" style="margin-left: 1%">
+        <?php
+        //loop through posts
+        foreach( $posts_array as $post ) :
+            //to get URL as String
+            $src=$post->post_content;
+            $content=apply_filters('the_content', get_post_field('post_content', $my_postid));
 
-            <?php
-            the_title( '<h2 class="entry-title" style="color: #1bb569;">','</h2>' );?>
-            <div class="gallery-thumbnail"  onclick="openModal(<?php the_ID() ?>);">
-                <img src="<?php the_post_thumbnail_url(); ?>" class="hover-shadow">
-            </div>
+            //Thumbnail-Picture
+            $thumb;
+            // check if the post has a Post Thumbnail assigned to it.
+            if ( has_post_thumbnail() ) {
+                $thumb_id = get_post_thumbnail_id( $post);
+                $thumb=wp_get_attachment_image_url($thumb_id, array('700', '600'));
+                ?>
 
-
-            <div id="myModal<?php the_ID() ?>" class="modal" style="background-color: rgb(0, 0, 0);">
-                <span class="close cursor" onclick="closeModal(<?php the_ID(); ?>)">&times;</span>
-                <div class="modal-content" style="background-color: black ;">
-                    <div class="row">
-                        <div class="col-xs-3"></div>
-                        <div class="col-xs-4" style="width: 256px; height: 256px; margin:0 auto;">
-                            <img src="<?php the_post_thumbnail_url(); ?>" style=" position: relative;top: 50%;transform: translateY(-50%);">
-                        </div>
-                        <div class="col-xs-3" style="height: 256px;">
-                            <?php the_title( '<h2 class="entry-title" style="color: #1bb569; position: relative;top: 50%;transform: translateY(-50%); margin-top: 0px;">','</h2>' );?>
-                        </div>
-                        <div class="col-xs-2"></div>
+                <!-- video content -->
+                <div class= "col-xs-4" style="padding-left: 0">
+                    <div id="post-<?php the_ID(); ?>"  class = "video-gallery" style="cursor:pointer">
+                        <div><a data-toggle="modal" data-target="#myModal<?php the_ID(); ?>"><img src="<?php echo $thumb ?> " /> </a></div>
                     </div>
-
-                    <div class="" style="margin-left: 25px; margin-top: 25px;">
-                        <?php
-                            the_content();
-
-                        ?>
-                    </div>
-
                 </div>
-            </div>
-        </article><!-- #post-## -->
+
+
+                <!-- modal content -->
+                <div class="modal fade" id="myModal<?php the_ID(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close modal-close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="media-capture" id="myModalLabel"><?php the_title(); ?></h4>
+                            </div>
+                            <div class="modal-body">
+                                <img src="<?php echo $thumb; ?>" style=""/>
+                                <?php echo $content; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <?php
+            }
+        endforeach;
+        ?>
     </div>
-<?php
-endwhile; endif;
-
-$args2 = array (
-    'category_name' => 'musik',
-    'posts_per_page' => -1,
-    'orderby' => 'date',
-);
-
-$cat_posts2 = new WP_query($args2);
+    <?php
+endif;
 ?>
-<h2 class="page-header">News</h2>
-<?php
-if ($cat_posts2->have_posts()) : while ($cat_posts2->have_posts()) : $cat_posts2->the_post();
-    ?>
-<?php
-    get_template_part( 'template-parts/content', get_post_format() );
-endwhile; endif;
+
+
+
+
+
+    
+
+
+
+

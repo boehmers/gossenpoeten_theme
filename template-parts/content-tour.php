@@ -32,20 +32,14 @@
 	}
 	usort($events_array,'invenDescSort');
 ?>
-
-
-<ul class="nav nav-tabs">
-	<li class="active"><a data-toggle="tab" href="#upcoming">Termine</a></li>
-	<li><a data-toggle="tab" href="#formerevents">Vergangene Veranstaltungen</a></li>
-</ul>
-
-<div class="tab-content">
+    <h2>Tour <?php echo date("Y"); ?></h2>
+    <h3>Bevorstehende Termine</h3>
 	<div id="upcoming" class="tab-pane fade in active">
 		<table class="table">
 			<tr>
 				<th>Datum</th>
-				<th>Uhrzeit</th>
-				<th>Veranstalter</th>
+				<th class="responsive_hidden">Uhrzeit</th>
+				<th class="responsive_hidden">Veranstalter</th>
 				<th>Ort</th>
 				<th>Name</th>
 				<th></th>
@@ -66,10 +60,10 @@
 					if($timestamp_now <= $timestamp_event){
 					?>
 					<tr>
-						<td><?php echo $event["date"]; ?> <a href=<?php echo $icalLink; ?>><span class="dashicons dashicons-calendar-alt"></span></a></td>
-						<td><?php echo $event["time"]; ?></td>
+						<td><?php echo $event["date"]; ?></td>
+						<td class="responsive_hidden"><?php echo $event["time"]; ?></td>
 						<?php if($event["organizer_link"] !== ""){?>
-							<td><a target="_blank" href=http://<?php echo $event['organizer_link'];?>><?php echo $event["organizer"]; ?></a></td>
+							<td class="responsive_hidden"><a target="_blank" href=http://<?php echo $event['organizer_link'];?>><?php echo $event["organizer"]; ?></a></td>
 						<?php }else{ ?>
 							<td><?php echo $event["organizer"]; ?></td>
 						<?php } ?>
@@ -95,12 +89,13 @@
 		</table>
 	</div>
 
-	<div id="formerevents" class="tab-pane">
+    <h3>Vergangene Termine</h3>
+	<div id="formerevents">
 		<table class="table">
 			<tr>
 				<th>Datum</th>
-				<th>Uhrzeit</th>
-				<th>Veranstalter</th>
+				<th class="responsive_hidden">Uhrzeit</th>
+				<th class="responsive_hidden">Veranstalter</th>
 				<th>Ort</th>
 				<th>Name</th>
 			</tr>
@@ -117,9 +112,9 @@
 					?>
 					<tr>
 						<td><?php echo $event["date"]; ?></td>
-						<td><?php echo $event["time"]; ?></td>
+						<td class="responsive_hidden"><?php echo $event["time"]; ?></td>
 						<?php if($event["organizer_link"] !== ""){?>
-							<td><a target="_blank" href=http://<?php echo $event['organizer_link']; ?>><?php echo $event["organizer"]; ?></a></td>
+							<td class="responsive_hidden"><a target="_blank" href=http://<?php echo $event['organizer_link']; ?>><?php echo $event["organizer"]; ?></a></td>
 						<?php }else{ ?>
 							<td><?php echo $event["organizer"]; ?></td>
 						<?php } ?>
@@ -139,4 +134,3 @@
 			<?php }} ?>
 		</table>
 	</div>
-</div>
