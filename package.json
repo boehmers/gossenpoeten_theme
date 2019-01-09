@@ -14,7 +14,7 @@
     "url": "git+https://github.com/boehmers/gossenpoeten_theme.git"
   },
   "author": "Manuel Böhm",
-  "license": "GPL",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/boehmers/gossenpoeten_theme/issues"
   },
@@ -22,19 +22,19 @@
   "devDependencies": {
     "fs": "0.0.1-security",
     "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.2.0",
-    "gulp-bower": "0.0.10",
-    "gulp-imagemin": "^2.2.1",
-    "gulp-include": "^1.1.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-bower": "0.0.14",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-include": "^2.3.1",
     "gulp-jshint": "^1.10.0",
-    "gulp-livereload": "^3.8.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.0.0",
-    "gulp-uglify": "^1.2.0",
-    "gulp-watch": "^4.2.4",
-    "gulp-zip": "^3.2.0",
-    "jshint-stylish": "^1.0.2"
+    "gulp-livereload": "^4.0.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1",
+    "gulp-watch": "^5.0.1",
+    "gulp-zip": "^4.2.0",
+    "jshint-stylish": "^2.2.1"
   }
 }
