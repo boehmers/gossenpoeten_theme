@@ -1,5 +1,8 @@
 <?php
-	$args = array('post_type' => 'event_dates');
+	$args = array(
+	    'post_type' => 'event_dates',
+        'posts_per_page' => -1
+    );
 	$loop = new WP_Query( $args );
 	$events_array = array();
 
@@ -33,7 +36,6 @@
 	usort($events_array,'invenDescSort');
 ?>
     <h2>Tour <?php echo date("Y"); ?></h2>
-    <h3>Bevorstehende Termine</h3>
 	<div id="upcoming" class="tab-pane fade in active">
 		<table class="table">
 			<tr>
@@ -89,7 +91,7 @@
 		</table>
 	</div>
 
-    <h3>Vergangene Termine</h3>
+    <h2>Tour-History</h2>
 	<div id="formerevents">
 		<table class="table">
 			<tr>
